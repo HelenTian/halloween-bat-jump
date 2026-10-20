@@ -355,7 +355,7 @@ footer>span span {
 
 .scoreboard.best {
   left: auto;
-  right: 26px;
+  right: 70px; /* clear of the 36px pause button at right: 22px */
   align-items: flex-end;
 }
 .scoreboard.best strong {
@@ -363,6 +363,6 @@ footer>span span {
 }
 @media (max-width: 650px) {
   .scoreboard.best {
-    right: 17px;
+    right: 66px;
   }
 }
