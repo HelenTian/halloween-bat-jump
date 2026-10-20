@@ -1,0 +1,10 @@
+import { mkdir, rm, copyFile, cp } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
+const root = fileURLToPath(new URL('../', import.meta.url));
+const output = resolve(root, 'dist');
+await rm(output, { recursive: true, force: true });
+await mkdir(output);
+for (const file of ['index.html', 'style.css']) await copyFile(resolve(root, file), resolve(output, file));
+await cp(resolve(root, 'src'), resolve(output, 'src'), { recursive: true });
+console.log('Built static game in dist/ (no network or third-party dependencies).');

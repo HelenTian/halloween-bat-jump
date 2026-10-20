@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#19122d" />
+    <meta name="description" content="A tiny Halloween flying game. Help Pip the bat dodge the haunted towers." />
+    <title>Bat Jump — a little midnight adventure</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ctext y='38' font-size='40'%3E🦇%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="Bat Jump home"><span aria-hidden="true">✦</span> MIDNIGHT ARCADE</a>
+        <span class="edition">HALLOWEEN EDITION · 01</span>
+      </header>
+      <section class="intro" aria-labelledby="title">
+        <div><p class="eyebrow">SMALL BAT. BIG NIGHT.</p><h1 id="title">Bat <em>Jump.</em></h1></div>
+        <p class="description">A little courage. A lot of flapping.<br />Help Pip find a way through the haunted towers.</p>
+      </section>
+      <section class="game" aria-label="Bat Jump game">
+        <div class="game-top"><span><i class="live-dot"></i> THE WITCHING HOUR</span><span>FLAP · DODGE · REPEAT</span></div>
+        <div class="stage" id="stage">
+          <canvas id="game" width="960" height="560" tabindex="0" aria-label="Flying game. Press Space or Arrow Up to flap; P to pause. Avoid the towers and ground."></canvas>
+          <div class="scoreboard" aria-label="Current score"><span>TOWERS PASSED</span><strong id="score">00</strong></div>
+          <button class="pause" id="pause" type="button" aria-label="Pause game" hidden>Ⅱ</button>
+          <div class="overlay" id="overlay">
+            <span class="badge" id="badge">YOUR MIDNIGHT ADVENTURE</span>
+            <h2 id="headline">Ready, little bat?</h2>
+            <p id="message">Keep your wings up and your spirits higher.</p>
+            <button class="play" id="play" type="button">Let’s fly <span aria-hidden="true">↗</span></button>
+            <span class="hint" id="hint">SPACE TO FLAP · OR TAP THE SKY</span>
+          </div>
+          <div class="status" id="status" role="status" aria-live="polite"></div>
+        </div>
+        <div class="game-bottom"><span><kbd>SPACE</kbd> / <kbd>↑</kbd> flap <span class="separator">·</span> <kbd>P</kbd> pause</span><span>OR TAP TO FLY <span aria-hidden="true">✧</span></span></div>
+      </section>
+      <footer><p>Made for a delightfully spooky five-minute break.</p><span>NO DOWNLOADS. JUST WINGS. <span aria-hidden="true">☾</span></span></footer>
+    </main>
+    <script type="module" src="src/game.mjs"></script>
+  </body>
+</html>

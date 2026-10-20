@@ -1,0 +1,14 @@
+{
+  "name": "halloween-bat-jump",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs regressions/*.test.mjs",
+    "test:baseline": "node --test tests/*.test.mjs",
+    "test:regression": "node --test regressions/*.test.mjs"
+  }
+}
