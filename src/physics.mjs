@@ -32,7 +32,7 @@ export function advance(state, dt) {
   if (state.status !== 'running' || dt <= 0) return state;
   const velocity = state.velocity + 900 * dt;
   const y = state.y + velocity * dt;
-  const speed = 185 + Math.min(state.score, 12) * 4;
+  const speed = 166 + Math.min(state.score, 12) * 4;
   const towers = state.towers.map(tower => ({ ...tower, x: tower.x - speed * dt }));
   let { seed, spawnIn, score } = state;
   spawnIn -= dt;
