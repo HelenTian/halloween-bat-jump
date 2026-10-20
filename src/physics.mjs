@@ -46,7 +46,7 @@ export function advance(state, dt) {
     const gapBottom = tower.gapTop + GAP_HEIGHT;
     hit ||= circleHitsRect(BAT_X, y, BAT_RADIUS, tower.x, 0, TOWER_WIDTH, tower.gapTop)
       || circleHitsRect(BAT_X, y, BAT_RADIUS, tower.x, gapBottom, TOWER_WIDTH, FLOOR - gapBottom);
-    if (!tower.passed && tower.x + TOWER_WIDTH < BAT_X - BAT_RADIUS) {
+    if (!tower.passed && tower.x + TOWER_WIDTH < BAT_X) {
       tower.passed = true;
       score += 1;
     }
