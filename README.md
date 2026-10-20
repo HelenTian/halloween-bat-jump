@@ -13,7 +13,16 @@ npm run build
 npm run dev
 ```
 
-Open http://127.0.0.1:4173. Set `PORT` to use a different port. The static build is in `dist/`; any static HTTP server can host it. `npm run dev` serves the source tree on loopback. Opening index.html directly as a file does not load ES modules reliably.
+Open http://127.0.0.1:4173. Set `PORT` to use a different port. The static build is in `dist/`; any static HTTP server can host it.
+
+To check the production build instead of the source tree, serve `dist/` on loopback with any static server, for example:
+
+```sh
+npm run build
+python3 -m http.server 4174 --bind 127.0.0.1 --directory dist
+```
+
+Open http://127.0.0.1:4174. For a different dev port, run `PORT=4180 npm run dev`. `npm run dev` serves the source tree on loopback. Opening index.html directly as a file does not load ES modules reliably.
 
 ## Agent test fixture
 
