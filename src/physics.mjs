@@ -6,6 +6,11 @@ export const BAT_RADIUS = 17;
 export const TOWER_WIDTH = 72;
 export const GAP_HEIGHT = 186;
 
+// Tower scroll speed: starts at BASE_SPEED and rises by SPEED_STEP per point.
+const BASE_SPEED = 185;
+const SPEED_STEP = 4;
+const MAX_SPEED_SCORE = 12;
+
 export function createGame(seed = 17) {
   return { status: 'ready', y: 245, velocity: 0, score: 0, time: 0, spawnIn: 1.5, towers: [], seed: seed >>> 0 };
 }
@@ -32,7 +37,7 @@ export function advance(state, dt) {
   if (state.status !== 'running' || dt <= 0) return state;
   const velocity = state.velocity + 900 * dt;
   const y = state.y + velocity * dt;
-  const speed = 185 + Math.min(state.score, 12) * 4;
+  const speed = BASE_SPEED + Math.min(state.score, MAX_SPEED_SCORE) * SPEED_STEP;
   const towers = state.towers.map(tower => ({ ...tower, x: tower.x - speed * dt }));
   let { seed, spawnIn, score } = state;
   spawnIn -= dt;
