@@ -10,8 +10,12 @@ export function loadBest(storage) {
   }
 }
 
+// Record a finished round and return the best score to show. Re-read the stored value
+// first: another tab may have saved a higher best since this one loaded, and a stale
+// tab must never lower it. `best` is this tab's in-memory value (used when storage is unavailable).
 export function recordBest(storage, best, score) {
-  if (score <= best) return best;
+  const known = Math.max(best, loadBest(storage));
+  if (score <= known) return known;
   try { storage?.setItem(BEST_KEY, String(score)); } catch { /* keep playing without persistence */ }
   return score;
 }
