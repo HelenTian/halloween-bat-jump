@@ -47,3 +47,5 @@ Trace Space keydown → `fly()` → `flap()` → fixed-step `advance()` → `dra
 GitHub Actions runs the tests and build on main and pull requests. A manual workflow dispatch can exercise the deliberately failing fixture ref for CI-recovery tests. Keep expected fixture failures distinct from the healthy main baseline.
 
 The wider smoke-test plan and execution records live in the private `HelenTian/buzz-tests` repository. Keep private runtime information, credentials and private-repository evidence out of this public repository.
+
+<!-- l07 fork-contribution probe: throwaway, safe to close -->
