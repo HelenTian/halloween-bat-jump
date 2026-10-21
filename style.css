@@ -352,3 +352,17 @@ footer>span span {
     transition: none;
   }
 }
+
+.scoreboard.best {
+  left: auto;
+  right: 70px; /* clear of the 36px pause button at right: 22px */
+  align-items: flex-end;
+}
+.scoreboard.best strong {
+  color: #f3d5a0;
+}
+@media (max-width: 650px) {
+  .scoreboard.best {
+    right: 66px;
+  }
+}

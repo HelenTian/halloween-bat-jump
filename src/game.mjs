@@ -1,8 +1,13 @@
+import { loadBest, recordBest } from './best-score.mjs';
 import { WIDTH, HEIGHT, FLOOR, BAT_X, BAT_RADIUS, TOWER_WIDTH, GAP_HEIGHT, createGame, flap, togglePause, advance } from './physics.mjs';
 
 const canvas = document.querySelector('#game');
 const ctx = canvas.getContext('2d');
 const score = document.querySelector('#score');
+const bestEl = document.querySelector('#best');
+let storage;
+try { storage = window.localStorage; } catch { storage = undefined; }
+let best = loadBest(storage);
 const overlay = document.querySelector('#overlay');
 const play = document.querySelector('#play');
 const pause = document.querySelector('#pause');
@@ -13,7 +18,9 @@ let accumulator = 0;
 let sceneryTime = 0;
 
 function sync() {
+  if (game.status === 'over') best = recordBest(storage, best, game.score);
   score.textContent = String(game.score).padStart(2, '0');
+  bestEl.textContent = String(best).padStart(2, '0');
   overlay.hidden = game.status === 'running';
   pause.hidden = game.status !== 'running';
   const headline = document.querySelector('#headline');
